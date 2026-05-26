@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shahzaib Naseer | Video Editor</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+:root{
+--primary:#8B5CF6;
+--secondary:#A855F7;
+--dark:#0f172a;
+}
+
+nav{
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+backdrop-filter:blur(15px);
+background:rgba(0,0,0,.4);
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:28px;
+font-weight:800;
+color:var(--primary);
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:30px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:white;
+transition:.3s;
+}
+
+nav ul li a:hover{
+color:var(--primary);
+}
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+position:relative;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+width:500px;
+height:500px;
+background:var(--primary);
+filter:blur(180px);
+opacity:.25;
+border-radius:50%;
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+}
+
+.profile{
+width:220px;
+height:220px;
+border-radius:50%;
+margin:auto;
+background:url('images/profile.jpg') center center/cover;
+border:4px solid #8B5CF6;
+box-shadow:
+0 0 20px #8B5CF6,
+0 0 40px #8B5CF6,
+0 0 80px rgba(139,92,246,.6);
+transition:.4s;
+}
+
+.profile:hover{
+transform:scale(1.05);
+}
+
+.hero h1{
+font-size:4rem;
+margin-top:25px;
+}
+
+.hero span{
+color:var(--primary);
+}
+
+.hero p{
+max-width:700px;
+margin:20px auto;
+opacity:.8;
+}
+
+.btn{
+display:inline-block;
+margin:10px;
+padding:15px 35px;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+transition:.4s;
+}
+
+.btn-primary{
+background:var(--primary);
+color:white;
+}
+
+.btn-primary:hover{
+transform:translateY(-5px);
+box-shadow:0 0 25px var(--primary);
+}
+
+.btn-outline{
+border:2px solid var(--primary);
+color:white;
+}
+
+.btn-outline:hover{
+background:var(--primary);
+}
+
+section{
+padding:100px 8%;
+}
+
+.section-title{
+font-size:3rem;
+text-align:center;
+margin-bottom:60px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.stat-card{
+background:rgba(255,255,255,.05);
+padding:35px;
+text-align:center;
+border-radius:20px;
+backdrop-filter:blur(15px);
+transition:.4s;
+}
+
+.stat-card:hover{
+transform:translateY(-10px);
+}
+
+.stat-card h2{
+font-size:2.5rem;
+color:var(--primary);
+}
+
+.skills{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:25px;
+}
+
+.skill{
+margin-bottom:20px;
+}
+
+.bar{
+height:12px;
+background:#222;
+border-radius:20px;
+overflow:hidden;
+}
+
+.fill{
+height:100%;
+background:linear-gradient(to right,var(--primary),var(--secondary));
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:rgba(255,255,255,.05);
+padding:30px;
+border-radius:20px;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px rgba(139,92,246,.4);
+}
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.project{
+background:#111827;
+border-radius:20px;
+overflow:hidden;
+}
+
+.project img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.project-content{
+padding:20px;
+}
+
+.contact{
+text-align:center;
+}
+
+.contact a{
+color:var(--primary);
+text-decoration:none;
+}
+
+footer{
+text-align:center;
+padding:30px;
+border-top:1px solid rgba(255,255,255,.1);
+}
+
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:2.5rem;
+}
+
+nav ul{
+display:none;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+<div class="logo">Shahzaib</div>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="profile"></div>
+<h1>Hi, I'm <span>Shahzaib Naseer</span></h1>
+
+<h2 id="typing"></h2>
+
+<p>
+Professional Video Editor with 5+ years of experience creating
+cinematic videos, YouTube content, commercials, reels,
+shorts and motion graphics.
+</p>
+
+<a href="#projects" class="btn btn-primary">View Projects</a>
+<a href="#contact" class="btn btn-outline">Hire Me</a>
+
+</div>
+
+</section>
+
+<section id="about" class="fade">
+
+<h2 class="section-title">About Me</h2>
+
+<div class="stats">
+
+<div class="stat-card">
+<h2>5+</h2>
+<p>Years Experience</p>
+</div>
+
+<div class="stat-card">
+<h2>1000+</h2>
+<p>Videos Edited</p>
+</div>
+
+<div class="stat-card">
+<h2>100+</h2>
+<p>Clients Served</p>
+</div>
+
+<div class="stat-card">
+<h2>24/7</h2>
+<p>Support</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="skills" class="fade">
+
+<h2 class="section-title">Skills</h2>
+
+<div class="skills">
+
+<div>
+<div class="skill">
+<p>Adobe Premiere Pro - 95%</p>
+<div class="bar"><div class="fill" style="width:95%"></div></div>
+</div>
+
+<div class="skill">
+<p>After Effects - 90%</p>
+<div class="bar"><div class="fill" style="width:90%"></div></div>
+</div>
+
+<div class="skill">
+<p>DaVinci Resolve - 85%</p>
+<div class="bar"><div class="fill" style="width:85%"></div></div>
+</div>
+</div>
+
+<div>
+<div class="skill">
+<p>Color Grading - 92%</p>
+<div class="bar"><div class="fill" style="width:92%"></div></div>
+</div>
+
+<div class="skill">
+<p>YouTube Editing - 98%</p>
+<div class="bar"><div class="fill" style="width:98%"></div></div>
+</div>
+
+<div class="skill">
+<p>Motion Graphics - 88%</p>
+<div class="bar"><div class="fill" style="width:88%"></div></div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section id="services" class="fade">
+
+<h2 class="section-title">Services</h2>
+
+<div class="services">
+
+<div class="card">
+<h3>🎬 YouTube Editing</h3>
+<p>Professional long-form video editing.</p>
+</div>
+
+<div class="card">
+<h3>📱 Reels & Shorts</h3>
+<p>High retention short content.</p>
+</div>
+
+<div class="card">
+<h3>🎨 Motion Graphics</h3>
+<p>Creative animations and effects.</p>
+</div>
+
+<div class="card">
+<h3>🎥 Commercial Ads</h3>
+<p>Business and product promotions.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="projects" class="fade">
+
+<h2 class="section-title">Projects</h2>
+
+<div class="projects">
+
+<div class="project">
+<img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1200">
+<div class="project-content">
+<h3>Cinematic Travel Film</h3>
+<p>Professional travel storytelling.</p>
+</div>
+</div>
+
+<div class="project">
+<img src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=1200">
+<div class="project-content">
+<h3>YouTube Documentary</h3>
+<p>Engaging documentary editing.</p>
+</div>
+</div>
+
+<div class="project">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200">
+<div class="project-content">
+<h3>Commercial Advertisement</h3>
+<p>High-converting product promotion.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact" class="contact fade">
+
+<h2 class="section-title">Contact Me</h2>
+
+<h3>Shahzaib Naseer</h3>
+
+<p>Email:</p>
+<p>
+<a href="mailto:naseershahzaib864272@gmail.com">
+naseershahzaib864272@gmail.com
+</a>
+</p>
+
+<br>
+
+<p>YouTube Channel:</p>
+
+<p>
+<a href="https://youtube.com/@cris7editz4u?si=nyxzH_qv0jLTp7Me">
+CRIS7EDITZ4U
+</a>
+</p>
+
+</section>
+
+<footer>
+
+<p>
+© 2026 Shahzaib Naseer | Professional Video Editor
+</p>
+
+</footer>
+
+<script>
+
+const words = [
+"Professional Video Editor",
+"Motion Graphics Artist",
+"Content Creator",
+"Visual Storyteller"
+];
+
+let i = 0;
+let j = 0;
+let current = "";
+let isDeleting = false;
+
+function type(){
+
+const typing = document.getElementById("typing");
+
+if(i < words.length){
+
+if(!isDeleting){
+current = words[i].substring(0,j++);
+}
+else{
+current = words[i].substring(0,j--);
+}
+
+typing.textContent = current;
+
+if(j == words[i].length + 1){
+isDeleting = true;
+setTimeout(type,1000);
+return;
+}
+
+if(j == 0){
+isDeleting = false;
+i++;
+if(i == words.length) i = 0;
+}
+
+setTimeout(type,isDeleting ? 50 : 100);
+
+}
+
+}
+
+type();
+
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+});
+
+document.querySelectorAll(".fade").forEach(el=>{
+observer.observe(el);
+});
+
+</script>
+
+</body>
+</html>
